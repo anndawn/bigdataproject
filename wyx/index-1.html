@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index-1.css">
+</head>
+<style media="screen">
+.tooltip{
+    position: absolute;
+    text-align: center;
+    width:30px;
+    height:15px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: rgb(255, 255, 255);
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    color:rgb(4, 4, 4);
+}r
+.tooltip::after {
+      box-sizing: border-box;
+      display: inline;
+      font-size: 10px;
+      width: 100%;
+      line-height: 1;
+      color: rgb(255, 255, 255);
+      position: absolute;
+      text-align: center;
+      content: "\25BC";
+      left:0px;
+      top:14px;
+    }
+.node circle {
+fill: #fff;
+stroke: #e9f37f;
+stroke-width: 3px;
+}
+
+.node text {
+font: 12px sans-serif;
+fill:#cacac7;
+}
+
+.link {
+fill: none;
+stroke: #ccc;
+stroke-width: 2px;
+}
+.mm{
+  stroke:rgb(217, 108, 153);
+  fill: none;
+  stroke-width: 2px;
+}
+.xaxis path,.yaxis path,.yaxis line,.xaxis line{stroke:#e2dada;}
+.yaxis text,.xaxis text{fill:#cacac7}
+#box2,#box1{position:absolute;top:0;left:420px;width: 630px;height: 400px;}
+#box2{display: none;}
+#char1{width:300px;height: 370px;display: inline-block;position: absolute;
+       left:1050px;top:10px;}
+#ooo{width: 1200px;height: 250px;position: absolute;
+   top:420px;left:50px;}
+#box5{width: 380px;height: 300px;position: absolute;
+  top:10px;left:50px;}
+#btn{position: absolute;left:450px;top:30px;z-index:100;border-radius: 5px;padding:3px 3px;
+    background-color:rgba(238, 236, 241, 0);color:#eef1f5}
+#box6{width: 380px;position: absolute;font-family:cursive;font-weight: bold;color:#040404;
+    /* height: 150px; */
+    left:10px;top:310px;margin:0 auto;padding:30px 20px;text-align: center;color:#d2d6c5}
+#box6 text{font-family:cursive;font-weight: bold;fill:#15f73b}
+</style>
+<style>
+    #fh{
+
+        width: 32px;
+        height: 32px;
+        background:url("../../img/fh2.png");
+        margin: 10px;
+    }
+</style>
+
+<body>
+<div id="all">
+    <div class="dv1">
+        <p>大数据媒体行业及应用场景</p>
+        <div id="fh">
+            <a href="../../1.html" style="display: block;width: 100%;height: 100%;target: back;">
+            </a>
+        </div>
+    </div>
+    <div class="dv2">
+        <input type="button" name="" value="人民网媒体大数据" id="btn">
+        <div class="box" id="box1"></div>
+        <div class="box" id="box2"></div>
+        <div class="box" id="char1"></div>
+        <div class="box" id="ooo"></div>
+        <div class="box" id="box5"></div>
+        <div class="box" id="box6">点击下方圆查看详细信息</div>
+    </div>
+</div>
+
+</body>
+</html>
+<script type="text/javascript" src='jquery-3.2.1.min.js'></script>
+<script src="js/index-1.js"></script>
+<script src="d3.js"></script>
+<script type="text/javascript" src="legend.min.js"></script>
+<script type="text/javascript" src="tip.js"></script>
+<script type="text/javascript" src="tree.js"></script>
+<script type="text/javascript" src="barpro.js"></script>
+<script type="text/javascript" src="horiline.js"></script>
+<script type="text/javascript" src="para.js"></script>
+<script type="text/javascript">
+drawtree(box1,treeData);
+drawtree(box2,treeData2);
+$("#btn").click(function (d) {
+    console.log("gg");
+  if ( $("#box1").css("display")=="none") {
+     $("#box1").fadeIn( "slow", function() {});
+     $(this).val("人民网媒体大数据")
+     $("#box2").fadeOut( "slow", function() {});
+  }else {
+    $("#box1").fadeOut( "slow", function() {});
+    $("#box2").fadeIn( "slow", function() {});
+    $(this).val("媒体大数据应用场景")
+  }
+})
+forcesi(datalabel,links2,0)
+</script>
